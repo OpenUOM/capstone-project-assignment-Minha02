@@ -4,9 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "pretest": "rm -rf test.sqlite && NODE_ENV=test knex migrate:unlock && NODE_ENV=test knex migrate:latest && NODE_ENV=test knex seed:run",
     "test": "NODE_ENV=test jest --config jest.config.js --runInBand --detectOpenHandles --forceExit",
     "test:specific": "NODE_ENV=test jest -t",
+=======
+    "test": "export NODE_ENV=test && forever start --minUptime 30000 ../backend/index.js && ng serve --port 4401 --configuration=test && sleep 15 && testcafe chrome:headless tests/ --page-load-timeout 60000 --assertion-timeout 10000 --selector-timeout 10000",
+>>>>>>> parent of a1bf119 (angular)
     "start": "node backend/index.js",
     "delete-db": "rm -f db.sqlite test.sqlite",
     "migrate": "npm run delete-db && knex migrate:latest",
