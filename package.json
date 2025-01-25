@@ -7,7 +7,7 @@
     "pretest": "rm -rf test.sqlite && NODE_ENV=test knex migrate:unlock && NODE_ENV=test knex migrate:latest && NODE_ENV=test knex seed:run",
     "test": "NODE_ENV=test jest --config jest.config.js --runInBand --detectOpenHandles --forceExit",
     "test:specific": "NODE_ENV=test jest -t",
-    "start": "node index.js",
+    "start": "node backend/index.js",
     "delete-db": "rm -f db.sqlite test.sqlite",
     "migrate": "npm run delete-db && knex migrate:latest",
     "seed": "knex seed:run",
