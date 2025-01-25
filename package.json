@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "pretest": "rm -f test.sqlite && NODE_ENV=test knex migrate:rollback --all && NODE_ENV=test knex migrate:latest",
-    "test": "NODE_ENV=test jest --runInBand --detectOpenHandles --forceExit",
+    "pretest": "NODE_ENV=test knex migrate:unlock && rm -f test.sqlite",
+    "test": "NODE_ENV=test jest --config jest.config.js --runInBand --detectOpenHandles --forceExit",
     "test:specific": "NODE_ENV=test jest -t",
     "start": "node index.js",
     "delete-db": "rm -f db.sqlite test.sqlite",
@@ -15,13 +15,6 @@
   },
   "author": "keetmalin.13@cse.mrt.ac.lk",
   "license": "ISC",
-  "jest": {
-    "testEnvironment": "node",
-    "testMatch": ["**/test/**/*.test.js"],
-    "coveragePathIgnorePatterns": [
-      "/node_modules/"
-    ]
-  },
   "dependencies": {
     "body-parser": "^1.20.0",
     "express": "^4.17.3",

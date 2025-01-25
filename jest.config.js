@@ -4,8 +4,8 @@ module.exports = async () => {
       testTimeout: 30000,
       maxWorkers: 1,
       testEnvironment: 'node',
-      testMatch: ['**/test/**/*.test.js'],
-      setupFilesAfterEnv: ['./test/setup.js']
+      testMatch: ['**/test/test.js'],
+      roots: ['<rootDir>/backend']
     };
   };
   
